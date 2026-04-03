@@ -1,139 +1,143 @@
 # Claw_Clipper - 网页剪藏技能
 
-智能抓取网页内容并保存为 Markdown 格式，支持飞书文档创建和 Obsidian 集成。
+智能抓取网页内容并保存为 Markdown 格式，支持飞书文档创建和 Obsidian 集成。通过自然语言触发，无需记忆复杂命令！
 
 ## 🚀 快速开始
 
-### 基础用法
+### 自然语言触发
+Claw_Clipper 通过关键词识别自动触发，无需固定命令格式：
+
+**基础用法：**
+- "剪藏这个网页：https://example.com/article"
+- "保存这篇文章到飞书：https://example.com/article"
+- "收藏这个链接：https://example.com/article"
+
+**指定格式：**
+- "把这个网页保存为 Obsidian 笔记：https://example.com/article"
+- "用 markdown 格式保存这篇文章：https://example.com/article"
+
+**指定位置和标签：**
+- "保存到我的文档文件夹，标签是AI和技术：https://example.com/article"
+- "剪藏这篇文章，标签是哲学思考：https://example.com/article"
+
+**批量处理：**
+- "批量保存这些链接：https://example.com/1, https://example.com/2"
+- "把这些文章都保存到飞书：urls.txt 里的链接"
+
+### 激活关键词
+技能会自动识别以下关键词触发：
+- 剪藏、保存、收藏、抓取、存档
+- 网页、文章、链接、URL
+- 飞书、Obsidian、文档、笔记
+- 批量、多个、列表
+
+## 📋 使用示例
+
+### 示例 1：简单剪藏
 ```
-/claw https://example.com/article
-/claw save https://example.com/article
+用户：剪藏这个网页：https://stephango.com/saw
+Claw_Clipper：✅ 已成功抓取文章并保存到飞书文档！
 ```
 
-### 指定输出格式
+### 示例 2：带标签保存
 ```
-/claw https://example.com/article --format obsidian
-/claw https://example.com/article -f markdown
-```
-
-### 指定保存位置
-```
-/claw https://example.com/article --output ~/Documents/clippings
-/claw https://example.com/article -o /path/to/save
+用户：保存这篇文章，标签是工具安全和哲学：https://stephango.com/saw
+Claw_Clipper：📄 文章已保存！添加了标签：工具安全, 哲学
 ```
 
-### 添加标签
+### 示例 3：保存到 Obsidian
 ```
-/claw https://example.com/article --tags "AI,技术,教程"
-/claw https://example.com/article -t "哲学,思考"
-```
-
-### 批量处理
-```
-/claw batch urls.txt
-/claw batch --file urls.txt --format obsidian
+用户：把这个网页保存为 Obsidian 笔记：https://example.com/tutorial
+Claw_Clipper：🔗 已保存到 Obsidian 仓库，创建了双向链接！
 ```
 
-## 📋 完整命令参考
-
-### 保存网页
+### 示例 4：批量处理
 ```
-/claw <url> [选项]
-/claw save <url> [选项]
-/claw clip <url> [选项]
-```
-
-**选项：**
-- `-f, --format <format>`: 输出格式 (markdown|obsidian)，默认：markdown
-- `-o, --output <dir>`: 输出目录
-- `-t, --tags <tags>`: 标签，用逗号分隔
-- `--obsidian-vault <path>`: Obsidian 仓库路径
-- `--to-feedoc`: 保存到飞书文档（默认）
-
-### 批量处理
-```
-/claw batch <文件路径> [选项]
-```
-
-**示例：**
-```
-/claw batch ~/urls.txt
-/claw batch --file ~/urls.txt --format obsidian --tags "收藏,待读"
-```
-
-### 配置管理
-```
-/claw config show          # 显示当前配置
-/claw config set <key> <value>  # 设置配置项
-/claw config reset         # 重置为默认配置
-```
-
-### 帮助信息
-```
-/claw help
-/claw --help
-/claw -h
-```
-
-## 🎨 使用示例
-
-### 示例 1：保存到飞书文档
-```
-/claw https://stephango.com/saw --tags "工具安全,哲学"
-```
-这将：
-1. 抓取网页内容
-2. 提取元数据（标题、作者、日期等）
-3. 转换为 Markdown
-4. 创建飞书文档
-5. 添加指定的标签
-
-### 示例 2：保存到本地 Obsidian
-```
-/claw https://example.com/tutorial --format obsidian --obsidian-vault ~/Obsidian
-```
-这将：
-1. 抓取网页内容
-2. 生成 Obsidian 格式的 Markdown
-3. 保存到指定的 Obsidian 仓库
-4. 自动创建双向链接
-
-### 示例 3：批量处理
-创建一个 `urls.txt` 文件：
-```
+用户：批量保存这些链接到飞书：
 https://example.com/article1
 https://example.com/article2
 https://example.com/article3
+
+Claw_Clipper：📚 批量处理完成！3篇文章已保存到飞书。
 ```
 
-然后运行：
+## 🎨 详细示例
+
+### 示例 1：简单剪藏到飞书
 ```
-/claw batch urls.txt --tags "技术博客,收藏"
+用户：剪藏这个网页：https://stephango.com/saw
+```
+**处理流程：**
+1. 🕷️ 智能抓取网页内容
+2. 📊 提取标题、作者、日期等元数据
+3. 📝 转换为结构化 Markdown
+4. 📱 自动创建飞书文档
+5. ✅ 返回文档链接和摘要
+
+### 示例 2：带标签和格式指定
+```
+用户：保存这篇文章为 Obsidian 笔记，标签是AI和技术：https://example.com/tutorial
+```
+**处理流程：**
+1. 🎯 识别格式要求（Obsidian）
+2. 🔖 提取并添加指定标签
+3. 🔗 生成 Obsidian 格式的 Markdown（支持双向链接）
+4. 💾 保存到默认 Obsidian 仓库
+5. 📋 返回文件路径和预览
+
+### 示例 3：批量处理多个链接
+```
+用户：批量保存这些文章到飞书：
+1. https://example.com/article1
+2. https://example.com/article2
+3. https://example.com/article3
+```
+**处理流程：**
+1. 📋 识别批量处理请求
+2. 🔄 依次处理每个链接
+3. 📚 批量创建飞书文档
+4. 📊 生成处理报告
+5. ✅ 返回成功/失败统计
+
+## ⚙️ 配置说明
+
+Claw_Clipper 会自动使用默认配置，但你可以通过自然语言调整设置：
+
+### 配置方式
+**询问当前配置：**
+```
+用户：Claw_Clipper 的当前设置是什么？
+Claw_Clipper：当前配置：默认保存到飞书，自动生成标签，本地备份到 ~/Documents/clippings
 ```
 
-## ⚙️ 配置项
+**修改配置：**
+```
+用户：把默认保存位置改为我的 Obsidian 仓库
+Claw_Clipper：✅ 已更新配置！现在默认保存到 Obsidian 仓库。
+
+用户：关闭自动标签功能
+Claw_Clipper：✅ 已关闭自动标签生成。
+```
+
+**查看支持的配置项：**
+```
+用户：Claw_Clipper 可以配置哪些选项？
+Claw_Clipper：支持配置：保存位置、输出格式、自动标签、飞书集成、Obsidian 路径等。
+```
 
 ### 默认配置
 ```json
 {
-  "outputDir": "~/Documents/clippings",
-  "defaultFormat": "markdown",
-  "autoTags": true,
-  "autoSaveToFeishu": true,
+  "outputDir": "~/Documents/clippings",      // 本地备份目录
+  "defaultFormat": "markdown",               // 默认格式
+  "autoTags": true,                          // 自动生成标签
+  "autoSaveToFeishu": true,                  // 自动保存到飞书
   "obsidian": {
-    "vaultPath": "~/Obsidian",
-    "autoLink": true
+    "vaultPath": "~/Obsidian",               // Obsidian 仓库路径
+    "autoLink": true                         // 自动创建双向链接
   }
 }
 ```
-
-### 配置说明
-- **outputDir**: 本地保存目录
-- **defaultFormat**: 默认输出格式
-- **autoTags**: 是否自动生成标签
-- **autoSaveToFeishu**: 是否自动保存到飞书文档
-- **obsidian.vaultPath**: Obsidian 仓库路径
-- **obsidian.autoLink**: 是否自动创建双向链接
 
 ## 🔧 高级功能
 
@@ -159,26 +163,41 @@ Claw_Clipper 支持针对特定网站的专用提取器：
 
 ## 🛠️ 安装和设置
 
-### 作为 OpenClaw 技能
-```bash
-# 1. 复制技能到技能目录
-cp -r claw-clipper ~/.openclaw/workspace/skills/
+### 作为 OpenClaw 技能安装
+Claw_Clipper 是专为 OpenClaw 设计的技能，安装后即可通过自然语言使用：
 
-# 2. 在 OpenClaw 中启用技能
-# （根据 OpenClaw 的配置方式）
+1. **克隆仓库到技能目录**
+   ```bash
+   cd ~/.openclaw/workspace/skills/
+   git clone https://github.com/dethan3/claw-clipper.git
+   ```
 
-# 3. 初始化配置
-/claw config init
-```
+2. **安装依赖**
+   ```bash
+   cd claw-clipper
+   npm install
+   ```
 
-### 独立使用
+3. **在 OpenClaw 中启用**
+   - 技能会自动注册到 OpenClaw
+   - 通过自然语言关键词触发
+   - 无需额外配置命令
+
+4. **开始使用**
+   ```
+   用户：剪藏这个网页：https://example.com/article
+   Claw_Clipper：✅ 已处理完成！
+   ```
+
+### 独立使用（开发者模式）
+如果你只想测试核心功能：
 ```bash
 # 1. 安装依赖
 cd claw-clipper
 npm install
 
-# 2. 运行
-node claw-clipper.js https://example.com/article
+# 2. 运行测试
+node clip.js --url https://example.com/article --format markdown
 ```
 
 ## 📁 文件结构
