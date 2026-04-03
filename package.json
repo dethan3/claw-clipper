@@ -1,0 +1,38 @@
+{
+  "name": "claw-clipper",
+  "version": "0.1.0",
+  "description": "网页剪藏工具，智能抓取网页内容并保存为 Markdown 格式，支持飞书文档创建和 Obsidian 集成",
+  "main": "claw-clipper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node claw-clipper.js",
+    "dev": "node claw-clipper.js"
+  },
+  "keywords": [
+    "claw",
+    "clipper",
+    "web",
+    "article",
+    "markdown",
+    "obsidian",
+    "feishu",
+    "openclaw"
+  ],
+  "author": "OpenClaw Community",
+  "license": "MIT",
+  "dependencies": {
+    "jsdom": "^24.0.0",
+    "turndown": "^7.2.0",
+    "turndown-plugin-gfm": "^1.0.2",
+    "node-fetch": "^2.7.0"
+  },
+  "openclaw": {
+    "skill": true,
+    "commands": {
+      "claw": {
+        "description": "剪藏网页内容",
+        "handler": "claw-clipper-skill.js"
+      }
+    }
+  }
+}

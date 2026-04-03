@@ -1,0 +1,19 @@
+# 示例 URL 列表
+# 每行一个 URL，以 http:// 或 https:// 开头
+
+https://example.com/article1
+https://blog.example.com/post/2024/awesome-tutorial
+https://medium.com/@author/interesting-article
+https://zhuanlan.zhihu.com/p/123456789
+https://github.com/user/repo/blob/main/README.md
+https://dev.to/author/how-to-build-a-clipper-tool
+
+# 技术博客
+https://www.freecodecamp.org/news/how-to-learn-web-development/
+https://css-tricks.com/complete-guide-grid/
+
+# 新闻文章
+https://www.bbc.com/news/technology-12345678
+
+# 文档
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide

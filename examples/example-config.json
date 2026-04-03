@@ -1,0 +1,60 @@
+{
+  "outputDir": "~/Documents/clippings",
+  "defaultFormat": "obsidian",
+  "autoTags": true,
+  "dateFormat": "YYYY-MM-DD",
+  "fileNameFormat": "{slug}-{date}",
+  
+  "extractors": {
+    "generic": true,
+    "medium": true,
+    "zhihu": true,
+    "github": true,
+    "blog": true,
+    "devto": true,
+    "freecodecamp": true
+  },
+  
+  "obsidian": {
+    "vaultPath": "~/Obsidian",
+    "autoLink": true,
+    "frontmatter": {
+      "tags": ["clipped"],
+      "source": true,
+      "clipped_at": true
+    },
+    "linkStrategy": "auto",
+    "createIndex": true
+  },
+  
+  "notifications": {
+    "enabled": true,
+    "success": true,
+    "failure": true,
+    "summary": true
+  },
+  
+  "advanced": {
+    "timeout": 30000,
+    "retryAttempts": 3,
+    "maxContentLength": 1000000,
+    "removeImages": false,
+    "keepLinks": true,
+    "normalizeWhitespace": true
+  },
+  
+  "scheduled": [
+    {
+      "name": "每日技术新闻",
+      "url": "https://news.ycombinator.com",
+      "schedule": "0 9 * * *",
+      "enabled": false
+    },
+    {
+      "name": "每周技术博客",
+      "url": "https://example.com/feed",
+      "schedule": "0 9 * * 1",
+      "enabled": false
+    }
+  ]
+}
